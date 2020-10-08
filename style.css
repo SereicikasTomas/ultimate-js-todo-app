@@ -1,6 +1,37 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  font-size: 62.5%;
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+
+
 svg{
   width: 25px;
   height: 25px;
   fill: orange;
   margin-bottom: -3px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #121212;
+    --text-color: #dfdfdf;
+    --shadow-color: #000000;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-color: #dfdfdf;
+    --text-color: #121212;
+    --shadow-color: #acacac;
+  }
 }

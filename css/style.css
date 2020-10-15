@@ -9,15 +9,63 @@
 
 body {
   font-size: 62.5%;
-  background: var(--bg-color);
   color: var(--text-color);
+  font-family: "Poppins", sans-serif;
+  background: var(--bg) no-repeat center/cover;
+  height: 100vh;
+  width: 100vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-svg {
+header {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-top: 5rem;
+}
+
+header h1 {
+  font-weight: 100;
+  letter-spacing: .25rem;
+}
+
+.form {
+  margin-top: 3rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 2rem;
+}
+
+.form__input {
+  padding: 0.5rem 1rem;
+  outline: 0;
+  border: none;
+}
+
+.form__button {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border: none;
+  background: white;
+}
+
+.form__button svg {
+  margin: auto;
   width: 25px;
   height: 25px;
-  fill: orange;
-  margin-bottom: -3px;
+  fill: black;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -25,6 +73,28 @@ svg {
     --bg-color: #121212;
     --text-color: #dfdfdf;
     --shadow-color: #000000;
+    --bg: repeating-linear-gradient(
+        22.5deg,
+        rgb(0, 0, 0) 0px,
+        rgb(0, 0, 0) 20px,
+        transparent 20px,
+        transparent 21px
+      ),
+      repeating-linear-gradient(
+        112.5deg,
+        rgb(0, 0, 0) 0px,
+        rgb(0, 0, 0) 20px,
+        transparent 20px,
+        transparent 21px
+      ),
+      linear-gradient(
+        90deg,
+        hsl(148, 52%, 47%),
+        hsl(220, 52%, 47%),
+        hsl(292, 52%, 47%),
+        hsl(4, 52%, 47%),
+        hsl(76, 52%, 47%)
+      );
   }
 }
 
@@ -33,5 +103,29 @@ svg {
     --bg-color: #dfdfdf;
     --text-color: #121212;
     --shadow-color: #acacac;
+    --bg: repeating-linear-gradient(
+        249deg,
+        transparent 0px,
+        transparent 3px,
+        rgb(255, 255, 255) 3px,
+        rgb(255, 255, 255) 32px
+      ),
+      repeating-linear-gradient(
+        307deg,
+        transparent 0px,
+        transparent 3px,
+        rgb(255, 255, 255) 3px,
+        rgb(255, 255, 255) 32px
+      ),
+      linear-gradient(
+        90deg,
+        hsl(191, 85%, 78%),
+        hsl(242.429, 85%, 78%),
+        hsl(293.857, 85%, 78%),
+        hsl(345.286, 85%, 78%),
+        hsl(36.714, 85%, 78%),
+        hsl(88.143, 85%, 78%),
+        hsl(139.571, 85%, 78%)
+      );
   }
 }

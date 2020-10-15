@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/style.min.css" />
@@ -14,16 +14,16 @@
     <header>
       <h1>Todo List</h1>
     </header>
-    <form>
-      <input type="text" />
-      <button type="submit">
+    <form class="form">
+      <input class="form__input" type="text" placeholder="Type in name..."/>
+      <button class="form__button" type="submit">
         <svg>
           <use xlink:href="img/sprite.svg#plus-square"></use>
         </svg>
       </button>
     </form>
     <div>
-      <ul></ul>
+      <ul class="todo"></ul>
     </div>
     <script src="./app.js"></script>
   </body>

@@ -24,7 +24,7 @@ header {
   margin-top: 5rem;
   h1 {
     font-weight: 100;
-    letter-spacing: .25rem;
+    letter-spacing: 0.25rem;
   }
 }
 
@@ -32,43 +32,63 @@ header {
   margin-top: 3rem;
   display: flex;
   font-size: 2rem;
+  overflow: hidden;
+  border-radius: 5px;
+  width: 20rem;
   &__input {
     padding: 0.5rem 1rem;
     outline: 0;
     border: none;
+    flex: 1;
+    background: var(--bg-color);
+    color: var(--text-color);
+    font-family: inherit;
+
+    &::placeholder {
+      color: var(--text-color);
+    }
   }
   &__button {
     padding: 0.5rem 1rem;
     cursor: pointer;
     display: flex;
     border: none;
-    background: white;
+    background: var(--bg-color);
+    transition: all 300ms ease;
 
     svg {
       margin: auto;
       width: 25px;
       height: 25px;
-      fill: black;
+      fill: var(--text-color);
+      transition: all 300ms ease;
+    }
+
+    &:hover{
+      background: var(--text-color);
+      svg {
+        fill: var(--bg-color);
+      }
     }
   }
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg-color: #121212;
-    --text-color: #dfdfdf;
+    --bg-color: #0e0e0e;
+    --text-color: #f5f5f5;
     --shadow-color: #000000;
     --bg: repeating-linear-gradient(
         22.5deg,
-        rgb(0, 0, 0) 0px,
-        rgb(0, 0, 0) 20px,
+        rgb(20, 20, 20) 0px,
+        rgb(20, 20, 20) 20px,
         transparent 20px,
         transparent 21px
       ),
       repeating-linear-gradient(
         112.5deg,
-        rgb(0, 0, 0) 0px,
-        rgb(0, 0, 0) 20px,
+        rgb(20, 20, 20) 0px,
+        rgb(20, 20, 20) 20px,
         transparent 20px,
         transparent 21px
       ),
@@ -85,22 +105,22 @@ header {
 
 @media (prefers-color-scheme: light) {
   :root {
-    --bg-color: #dfdfdf;
-    --text-color: #121212;
+    --bg-color: #f5f5f5;
+    --text-color: #0e0e0e;
     --shadow-color: #acacac;
     --bg: repeating-linear-gradient(
         249deg,
         transparent 0px,
         transparent 3px,
-        rgb(255, 255, 255) 3px,
-        rgb(255, 255, 255) 32px
+        rgb(230, 230, 230) 3px,
+        rgb(230, 230, 230) 32px
       ),
       repeating-linear-gradient(
         307deg,
         transparent 0px,
         transparent 3px,
-        rgb(255, 255, 255) 3px,
-        rgb(255, 255, 255) 32px
+        rgb(230, 230, 230) 3px,
+        rgb(230, 230, 230) 32px
       ),
       linear-gradient(
         90deg,
@@ -108,9 +128,9 @@ header {
         hsl(242.429, 85%, 78%),
         hsl(293.857, 85%, 78%),
         hsl(345.286, 85%, 78%),
-        hsl(36.714, 85%, 78%),
-        hsl(88.143, 85%, 78%),
-        hsl(139.571, 85%, 78%)
+        rgb(247, 201, 128),
+        rgb(178, 216, 135),
+        rgb(102, 199, 133)
       );
   }
 }

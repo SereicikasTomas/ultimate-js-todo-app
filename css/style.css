@@ -34,7 +34,7 @@ header {
 
 header h1 {
   font-weight: 100;
-  letter-spacing: .25rem;
+  letter-spacing: 0.25rem;
 }
 
 .form {
@@ -43,12 +43,37 @@ header h1 {
   display: -ms-flexbox;
   display: flex;
   font-size: 2rem;
+  overflow: hidden;
+  border-radius: 5px;
+  width: 20rem;
 }
 
 .form__input {
   padding: 0.5rem 1rem;
   outline: 0;
   border: none;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  background: var(--bg-color);
+  color: var(--text-color);
+  font-family: inherit;
+}
+
+.form__input::-webkit-input-placeholder {
+  color: var(--text-color);
+}
+
+.form__input:-ms-input-placeholder {
+  color: var(--text-color);
+}
+
+.form__input::-ms-input-placeholder {
+  color: var(--text-color);
+}
+
+.form__input::placeholder {
+  color: var(--text-color);
 }
 
 .form__button {
@@ -58,32 +83,44 @@ header h1 {
   display: -ms-flexbox;
   display: flex;
   border: none;
-  background: white;
+  background: var(--bg-color);
+  -webkit-transition: all 300ms ease;
+  transition: all 300ms ease;
 }
 
 .form__button svg {
   margin: auto;
   width: 25px;
   height: 25px;
-  fill: black;
+  fill: var(--text-color);
+  -webkit-transition: all 300ms ease;
+  transition: all 300ms ease;
+}
+
+.form__button:hover {
+  background: var(--text-color);
+}
+
+.form__button:hover svg {
+  fill: var(--bg-color);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg-color: #121212;
-    --text-color: #dfdfdf;
+    --bg-color: #0e0e0e;
+    --text-color: #f5f5f5;
     --shadow-color: #000000;
     --bg: repeating-linear-gradient(
         22.5deg,
-        rgb(0, 0, 0) 0px,
-        rgb(0, 0, 0) 20px,
+        rgb(20, 20, 20) 0px,
+        rgb(20, 20, 20) 20px,
         transparent 20px,
         transparent 21px
       ),
       repeating-linear-gradient(
         112.5deg,
-        rgb(0, 0, 0) 0px,
-        rgb(0, 0, 0) 20px,
+        rgb(20, 20, 20) 0px,
+        rgb(20, 20, 20) 20px,
         transparent 20px,
         transparent 21px
       ),
@@ -100,22 +137,22 @@ header h1 {
 
 @media (prefers-color-scheme: light) {
   :root {
-    --bg-color: #dfdfdf;
-    --text-color: #121212;
+    --bg-color: #f5f5f5;
+    --text-color: #0e0e0e;
     --shadow-color: #acacac;
     --bg: repeating-linear-gradient(
         249deg,
         transparent 0px,
         transparent 3px,
-        rgb(255, 255, 255) 3px,
-        rgb(255, 255, 255) 32px
+        rgb(230, 230, 230) 3px,
+        rgb(230, 230, 230) 32px
       ),
       repeating-linear-gradient(
         307deg,
         transparent 0px,
         transparent 3px,
-        rgb(255, 255, 255) 3px,
-        rgb(255, 255, 255) 32px
+        rgb(230, 230, 230) 3px,
+        rgb(230, 230, 230) 32px
       ),
       linear-gradient(
         90deg,
@@ -123,9 +160,9 @@ header h1 {
         hsl(242.429, 85%, 78%),
         hsl(293.857, 85%, 78%),
         hsl(345.286, 85%, 78%),
-        hsl(36.714, 85%, 78%),
-        hsl(88.143, 85%, 78%),
-        hsl(139.571, 85%, 78%)
+        rgb(247, 201, 128),
+        rgb(178, 216, 135),
+        rgb(102, 199, 133)
       );
   }
 }

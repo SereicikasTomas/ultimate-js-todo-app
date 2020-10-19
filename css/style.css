@@ -1,3 +1,8 @@
+:root {
+  --green: #2a9d8f;
+  --red: #e63946;
+}
+
 *,
 *::after,
 *::before {
@@ -77,6 +82,7 @@ header h1 {
 }
 
 .form__button {
+  outline: 0;
   padding: 0.5rem 1rem;
   cursor: pointer;
   display: -webkit-box;
@@ -103,6 +109,103 @@ header h1 {
 
 .form__button:hover svg {
   fill: var(--bg-color);
+}
+
+.todo-list {
+  list-style: none;
+  width: 25rem;
+  margin-top: 1rem;
+}
+
+.todo-list .todo {
+  padding: 0.5rem;
+  border-radius: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 1rem;
+  background: var(--bg-color);
+  -webkit-animation: SlideIn 1s ease forwards;
+          animation: SlideIn 1s ease forwards;
+}
+
+.todo-list .todo__text {
+  font-size: 1.5rem;
+  -webkit-hyphens: auto;
+      -ms-hyphens: auto;
+          hyphens: auto;
+  max-width: 20rem;
+  margin-right: auto;
+  position: relative;
+}
+
+.todo-list .todo__text::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -5px;
+  height: 2px;
+  width: calc(100% + 10px);
+  -webkit-transform-origin: left;
+          transform-origin: left;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  background-color: var(--text-color);
+  -webkit-transition: -webkit-transform .5s ease;
+  transition: -webkit-transform .5s ease;
+  transition: transform .5s ease;
+  transition: transform .5s ease, -webkit-transform .5s ease;
+  -webkit-box-decoration-break: clone;
+          box-decoration-break: clone;
+  display: inline;
+}
+
+.todo-list .todo svg {
+  width: 25px;
+  height: 25px;
+}
+
+.todo-list .todo button {
+  outline: 0;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border: none;
+  margin-left: 0.5rem;
+  background: none;
+}
+
+.todo-list .todo .complete svg {
+  fill: var(--green);
+}
+
+.todo-list .todo .delete svg {
+  fill: var(--red);
+}
+
+.todo-list .completed p::before {
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+}
+
+@-webkit-keyframes SlideIn {
+  to {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes SlideIn {
+  to {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
+  }
 }
 
 @media (prefers-color-scheme: dark) {

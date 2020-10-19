@@ -1,3 +1,8 @@
+:root {
+  --green: #2a9d8f;
+  --red: #e63946;
+}
+
 *,
 *::after,
 *::before {
@@ -22,6 +27,7 @@ header {
   font-size: 2.5rem;
   text-align: center;
   margin-top: 5rem;
+
   h1 {
     font-weight: 100;
     letter-spacing: 0.25rem;
@@ -35,6 +41,7 @@ header {
   overflow: hidden;
   border-radius: 5px;
   width: 20rem;
+
   &__input {
     padding: 0.5rem 1rem;
     outline: 0;
@@ -49,6 +56,7 @@ header {
     }
   }
   &__button {
+    outline: 0;
     padding: 0.5rem 1rem;
     cursor: pointer;
     display: flex;
@@ -64,12 +72,86 @@ header {
       transition: all 300ms ease;
     }
 
-    &:hover{
+    &:hover {
       background: var(--text-color);
+
       svg {
         fill: var(--bg-color);
       }
     }
+  }
+}
+
+.todo-list {
+  list-style: none;
+  width: 25rem;
+  margin-top: 1rem;
+
+  .todo {
+    padding: 0.5rem;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
+    background: var(--bg-color);
+    animation: SlideIn 1s ease forwards;
+
+    &__text {
+      font-size: 1.5rem;
+      hyphens: auto;
+      max-width: 20rem;
+      margin-right: auto;
+      position: relative;
+      
+      &::before{
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: -5px;
+        height: 2px;
+        width: calc(100% + 10px);
+        transform-origin: left;
+        transform: scaleX(0);
+        background-color: var(--text-color);
+        transition: transform .5s ease;
+        box-decoration-break: clone;
+        display: inline;
+      }
+    }
+
+    svg {
+      width: 25px;
+      height: 25px;
+    }
+
+    button {
+      outline: 0;
+      cursor: pointer;
+      display: flex;
+      border: none;
+      margin-left: 0.5rem;
+      background: none;
+    }
+
+    .complete svg {
+      fill: var(--green);
+    }
+
+    .delete svg {
+      fill: var(--red);
+    }
+  }
+  .completed {
+    p::before{
+      transform: scaleX(1);
+    }
+  }
+}
+
+@keyframes SlideIn {
+  to {
+    transform: translateX(0);
+    opacity: 1;
   }
 }
 

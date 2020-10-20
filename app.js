@@ -23,7 +23,15 @@ function addTodo(event) {
     return;
   }
 
-  todoList.insertAdjacentHTML("beforeend", todoBlueprint(inputValue));
+  allTodos.push({
+    id: createId(),
+    title: inputValue,
+    completed: false,
+  });
+
+  const { title, id } = allTodos[allTodos.length - 1];
+  todoList.insertAdjacentHTML("beforeend", todoBlueprint(title, id));
+  saveTodos(allTodos);
   input.value = "";
 }
 

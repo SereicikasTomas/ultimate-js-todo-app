@@ -64,3 +64,52 @@ function todoClick(event) {
     todo.addEventListener("transitionend", () => todo.remove());
   }
 }
+
+// function filterTodo(event) {
+//   const todos = todoList.children;
+//   console.log(todos);
+//   todos.forEach((todo) => {
+//     // switch (event.target.value) {
+//     //   case "all":
+//     //     todo.style.display = "flex";
+//     //   case "completed":
+//     //     todo.style.display = todo.classList.contains("completed") ? "flex" : "none";
+//     //   case "uncompleted":
+//     //     todo.style.display = !todo.classList.contains("completed") ? "flex" : "none";
+//     // }
+//   });
+// }
+
+// Fetch existing todos from localStorage
+function getSavedTodos() {
+  let data = localStorage.getItem("todos");
+  //Check if the value for parsing is correct
+  try {
+    return data ? JSON.parse(data) : [];
+  } catch (e) {
+    return [];
+  }
+}
+
+// Save todos to localStorage
+function saveTodos(todos) {
+  localStorage.setItem("todos", JSON.stringify(todos));
+}
+
+function todoBlueprint(text, id) {
+  return `
+  <li class="todo active" data-id=${id}>
+    <p class="todo__text">${text}</p>
+    <button class="complete">
+      <svg>
+        <use xlink:href="img/sprite.svg#check-square"></use>
+      </svg>
+    </button>
+    <button class="delete">
+      <svg>
+        <use xlink:href="img/sprite.svg#trash-can"></use>
+      </svg>
+    </button>
+  </li>
+`;
+}

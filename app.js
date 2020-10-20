@@ -35,6 +35,20 @@ function addTodo(event) {
   input.value = "";
 }
 
+function renderTodos(todos) {
+  todos.forEach(({ title, id }) =>
+    todoList.insertAdjacentHTML("beforeend", todoBlueprint(title, id))
+  );
+}
+
+function deleteTodo(id) {
+  const index = allTodos.findIndex((item) => item.id == id);
+
+  if (index > -1) {
+    allTodos.splice(index, 1);
+  }
+}
+
 function todoClick(event) {
   const item = event.target;
 

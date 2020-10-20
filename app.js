@@ -1,6 +1,11 @@
 const form = document.querySelector(".form");
 const input = document.querySelector(".form__input");
 const todoList = document.querySelector(".todo-list");
+const filter = document.querySelector(".filter");
+const createId = () => {
+  const date = new Date();
+  return date.getTime();
+};
 
 const todoBlueprint = (text) => `
   <li class="todo active">

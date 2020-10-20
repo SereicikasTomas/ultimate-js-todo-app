@@ -61,6 +61,8 @@ function todoClick(event) {
   if (deleteButton) {
     const todo = deleteButton.parentElement;
     todo.classList.add("deleted");
+    deleteTodo(todo.dataset.id);
+    saveTodos(allTodos);
     todo.addEventListener("transitionend", () => todo.remove());
   }
 }

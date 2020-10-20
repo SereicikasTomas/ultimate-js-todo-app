@@ -3,7 +3,7 @@ const input = document.querySelector(".form__input");
 const todoList = document.querySelector(".todo-list");
 
 const todoBlueprint = (text) => `
-  <li class="todo">
+  <li class="todo active">
     <p class="todo__text">${text}</p>
     <button class="complete">
       <svg>
@@ -34,12 +34,18 @@ function addTodo(event) {
   input.value = "";
 }
 
-function todoClick(event){
+function todoClick(event) {
   const item = event.target;
-  
+
   const completeButton = item.closest(".complete");
   const deleteButton = item.closest(".delete");
 
-  if(completeButton) completeButton.parentElement.classList.toggle("completed");
-  if(deleteButton) deleteButton.parentElement.remove();
+  if (completeButton)
+    completeButton.parentElement.classList.toggle("completed");
+
+  if (deleteButton) {
+    const todo = deleteButton.parentElement;
+    todo.classList.add("deleted");
+    todo.addEventListener("transitionend", () => todo.remove());
+  }
 }

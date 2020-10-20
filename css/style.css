@@ -111,6 +111,35 @@ header h1 {
   fill: var(--bg-color);
 }
 
+.filter-wrapper {
+  margin-top: 1rem;
+  position: relative;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.filter-wrapper select {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  outline: none;
+  border: none;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  cursor: pointer;
+  padding: 0.5rem 2.5rem .5rem 1rem;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+.filter-wrapper::after {
+  content: "\25BC";
+  position: absolute;
+  right: 1rem;
+  top: 30%;
+  pointer-events: none;
+}
+
 .todo-list {
   list-style: none;
   width: 25rem;

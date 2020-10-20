@@ -128,8 +128,10 @@ header h1 {
           align-items: center;
   margin-top: 1rem;
   background: var(--bg-color);
-  -webkit-animation: SlideIn 1s ease forwards;
-          animation: SlideIn 1s ease forwards;
+  -webkit-animation: slideIn 0.5s ease;
+          animation: slideIn 0.5s ease;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
 }
 
 .todo-list .todo__text {
@@ -140,27 +142,6 @@ header h1 {
   max-width: 20rem;
   margin-right: auto;
   position: relative;
-}
-
-.todo-list .todo__text::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: -5px;
-  height: 2px;
-  width: calc(100% + 10px);
-  -webkit-transform-origin: left;
-          transform-origin: left;
-  -webkit-transform: scaleX(0);
-          transform: scaleX(0);
-  background-color: var(--text-color);
-  -webkit-transition: -webkit-transform .5s ease;
-  transition: -webkit-transform .5s ease;
-  transition: transform .5s ease;
-  transition: transform .5s ease, -webkit-transform .5s ease;
-  -webkit-box-decoration-break: clone;
-          box-decoration-break: clone;
-  display: inline;
 }
 
 .todo-list .todo svg {
@@ -187,12 +168,26 @@ header h1 {
   fill: var(--red);
 }
 
-.todo-list .completed p::before {
-  -webkit-transform: scaleX(1);
-          transform: scaleX(1);
+.todo-list .completed {
+  opacity: .5;
 }
 
-@-webkit-keyframes SlideIn {
+.todo-list .completed p {
+  text-decoration: line-through;
+}
+
+.todo-list .deleted {
+  -webkit-transform: translateX(-50px);
+          transform: translateX(-50px);
+  opacity: 0;
+}
+
+@-webkit-keyframes slideIn {
+  from {
+    -webkit-transform: translateX(50px);
+            transform: translateX(50px);
+    opacity: 0;
+  }
   to {
     -webkit-transform: translateX(0);
             transform: translateX(0);
@@ -200,7 +195,12 @@ header h1 {
   }
 }
 
-@keyframes SlideIn {
+@keyframes slideIn {
+  from {
+    -webkit-transform: translateX(50px);
+            transform: translateX(50px);
+    opacity: 0;
+  }
   to {
     -webkit-transform: translateX(0);
             transform: translateX(0);

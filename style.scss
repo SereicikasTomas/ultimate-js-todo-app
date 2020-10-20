@@ -94,7 +94,8 @@ header {
     align-items: center;
     margin-top: 1rem;
     background: var(--bg-color);
-    animation: SlideIn 1s ease forwards;
+    animation: slideIn 0.5s ease;
+    transition: all .5s ease;
 
     &__text {
       font-size: 1.5rem;
@@ -102,21 +103,6 @@ header {
       max-width: 20rem;
       margin-right: auto;
       position: relative;
-      
-      &::before{
-        content: "";
-        position: absolute;
-        top: 50%;
-        left: -5px;
-        height: 2px;
-        width: calc(100% + 10px);
-        transform-origin: left;
-        transform: scaleX(0);
-        background-color: var(--text-color);
-        transition: transform .5s ease;
-        box-decoration-break: clone;
-        display: inline;
-      }
     }
 
     svg {
@@ -141,14 +127,25 @@ header {
       fill: var(--red);
     }
   }
+
   .completed {
-    p::before{
-      transform: scaleX(1);
+    opacity: .5;
+    p {
+      text-decoration: line-through;
     }
   }
+
+  .deleted {
+    transform: translateX(-50px);
+    opacity: 0;
+  } 
 }
 
-@keyframes SlideIn {
+@keyframes slideIn {
+  from {
+    transform: translateX(50px);
+    opacity: 0;
+  }
   to {
     transform: translateX(0);
     opacity: 1;

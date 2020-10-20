@@ -7,21 +7,9 @@ const createId = () => {
   return date.getTime();
 };
 
-const todoBlueprint = (text) => `
-  <li class="todo active">
-    <p class="todo__text">${text}</p>
-    <button class="complete">
-      <svg>
-        <use xlink:href="img/sprite.svg#check-square"></use>
-      </svg>
-    </button>
-    <button class="delete">
-      <svg>
-        <use xlink:href="img/sprite.svg#trash-can"></use>
-      </svg>
-    </button>
-  </li>
-`;
+const allTodos = getSavedTodos();
+
+renderTodos(allTodos);
 
 form.addEventListener("submit", addTodo);
 todoList.addEventListener("click", todoClick);

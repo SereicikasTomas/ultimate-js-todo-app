@@ -14,6 +14,7 @@ renderTodos(allTodos);
 
 form.addEventListener("submit", addTodo);
 todoList.addEventListener("click", todoClick);
+filter.addEventListener("change", filterTodo);
 
 function addTodo(event) {
   event.preventDefault();

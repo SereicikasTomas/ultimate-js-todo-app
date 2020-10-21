@@ -37,10 +37,8 @@ function addTodo(event) {
   input.value = "";
 }
 
-function renderTodos(todos) {
-  todos.forEach(({ title, id }) =>
-    todoList.insertAdjacentHTML("beforeend", todoBlueprint(title, id))
-  );
+function renderTodo(todo, index) {
+  todoList.insertAdjacentHTML("beforeend", todoBlueprint(todo, index));
 }
 
 function deleteTodo(id) {

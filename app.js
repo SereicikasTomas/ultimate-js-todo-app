@@ -111,12 +111,12 @@ function todoBlueprint(todo, index = 0) {
   return `
   <li class="todo ${completedClass}" data-id=${id} style="--i:${index};">
     <p class="todo__text">${title}</p>
-    <button class="complete">
+    <button class="complete" aria-label="Complete">
       <svg>
         <use xlink:href="img/sprite.svg#check-square"></use>
       </svg>
     </button>
-    <button class="delete">
+    <button class="delete" aria-label="Delete">
       <svg>
         <use xlink:href="img/sprite.svg#trash-can"></use>
       </svg>

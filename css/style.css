@@ -31,6 +31,14 @@ body {
           align-items: center;
 }
 
+label {
+  position: absolute;
+  height: 1px;
+  width: 1px;
+  border: 0;
+  overflow: hidden;
+}
+
 header {
   font-size: 2.5rem;
   text-align: center;
@@ -281,6 +289,6 @@ header h1 {
         transparent 1px,
         transparent 13px
       ),
-      linear-gradient(90deg, rgb(230, 230, 230), rgb(230, 230, 230) );
+      linear-gradient(90deg, rgb(230, 230, 230), rgb(230, 230, 230));
   }
 }

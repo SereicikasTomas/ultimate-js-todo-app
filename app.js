@@ -81,20 +81,22 @@ function todoClick(event) {
 }
 
 function filterTodo(event) {
-  allTodos.forEach((todo) => {
-    const nodeEl = document.querySelector(`[data-id="${todo.id}"]`);
-    switch (event.target.value) {
-      case "all":
-        nodeEl.style.display = "flex";
-        break;
-      case "completed":
-        nodeEl.style.display = todo.completed ? "flex" : "none";
-        break;
-      case "uncompleted":
-        nodeEl.style.display = !todo.completed ? "flex" : "none";
-        break;
-    }
-  });
+  const completeTodos = allTodos.filter((curr) => curr.completed);
+  const uncompleteTodos = allTodos.filter((curr) => !curr.completed);
+  switch (event.target.value) {
+    case "all":
+      clearInnerHtml(todoList);
+      allTodos.forEach((todo, index) => renderTodo(todo, index));
+      break;
+    case "completed":
+      clearInnerHtml(todoList);
+      completeTodos.forEach((todo, index) => renderTodo(todo, index));
+      break;
+    case "uncompleted":
+      clearInnerHtml(todoList);
+      uncompleteTodos.forEach((todo, index) => renderTodo(todo, index));
+      break;
+  }
 }
 
 // Fetch existing todos from localStorage

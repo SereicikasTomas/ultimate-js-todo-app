@@ -78,20 +78,22 @@ function todoClick(event) {
   }
 }
 
-// function filterTodo(event) {
-//   const todos = todoList.children;
-//   console.log(todos);
-//   todos.forEach((todo) => {
-//     // switch (event.target.value) {
-//     //   case "all":
-//     //     todo.style.display = "flex";
-//     //   case "completed":
-//     //     todo.style.display = todo.classList.contains("completed") ? "flex" : "none";
-//     //   case "uncompleted":
-//     //     todo.style.display = !todo.classList.contains("completed") ? "flex" : "none";
-//     // }
-//   });
-// }
+function filterTodo(event) {
+  allTodos.forEach((todo) => {
+    const nodeEl = document.querySelector(`[data-id="${todo.id}"]`);
+    switch (event.target.value) {
+      case "all":
+        nodeEl.style.display = "flex";
+        break;
+      case "completed":
+        nodeEl.style.display = todo.completed ? "flex" : "none";
+        break;
+      case "uncompleted":
+        nodeEl.style.display = !todo.completed ? "flex" : "none";
+        break;
+    }
+  });
+}
 
 // Fetch existing todos from localStorage
 function getSavedTodos() {

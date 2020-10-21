@@ -41,6 +41,14 @@ function renderTodo(todo, index) {
   todoList.insertAdjacentHTML("beforeend", todoBlueprint(todo, index));
 }
 
+const toggleTodo = (id) => {
+  const todo = allTodos.find((item) => item.id == id);
+
+  if (todo) {
+    todo.completed = !todo.completed;
+  }
+};
+
 function deleteTodo(id) {
   const index = allTodos.findIndex((item) => item.id == id);
 

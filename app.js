@@ -59,17 +59,20 @@ function deleteTodo(id) {
 
 function todoClick(event) {
   const item = event.target;
-
+  const todo = item.closest(".todo");
+  const { id } = todo.dataset;
   const completeButton = item.closest(".complete");
   const deleteButton = item.closest(".delete");
 
-  if (completeButton)
+  if (completeButton) {
     completeButton.parentElement.classList.toggle("completed");
+    toggleTodo(id);
+    saveTodos(allTodos);
+  }
 
   if (deleteButton) {
-    const todo = deleteButton.parentElement;
     todo.classList.add("deleted");
-    deleteTodo(todo.dataset.id);
+    deleteTodo(id);
     saveTodos(allTodos);
     todo.addEventListener("transitionend", () => todo.remove());
   }

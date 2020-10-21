@@ -31,8 +31,8 @@ function addTodo(event) {
     completed: false,
   });
 
-  const { title, id } = allTodos[allTodos.length - 1];
-  todoList.insertAdjacentHTML("beforeend", todoBlueprint(title, id));
+  const lastTodo = allTodos[allTodos.length - 1];
+  renderTodo(lastTodo);
   saveTodos(allTodos);
   input.value = "";
 }

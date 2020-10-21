@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="Description" content="A todo list built using HTML, CSS and JS.">
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300&display=swap"
       rel="stylesheet"
@@ -15,20 +16,22 @@
       <h1>Todo List</h1>
     </header>
     <form class="form">
-      <input class="form__input" type="text" placeholder="Create a todo..." />
-      <button class="form__button" type="submit">
+        <input class="form__input" type="text" placeholder="Create a todo..." id="form"/>
+        <label for="form">Create todo</label>
+      <button class="form__button" type="submit" aria-label="Submit">
         <svg class="svg">
           <use xlink:href="img/sprite.svg#plus-square"></use>
         </svg>
       </button>
     </form>
     <div class="filter-wrapper">
-      <select name="todos" class="filter">
+      <select name="todos" class="filter" id="filter">
         <option value="" disabled selected>Select filter...</option>
         <option value="all">All</option>
         <option value="completed">Completed</option>
         <option value="uncompleted">Uncompleted</option>
       </select>
+      <label for="filter">Select filter</label>
     </div>
     <ul class="todo-list"></ul>
     <script src="./app.js"></script>

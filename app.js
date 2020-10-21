@@ -8,6 +8,7 @@ const createId = () => {
 };
 
 const allTodos = getSavedTodos();
+allTodos.forEach((todo, index) => renderTodo(todo, index));
 
 renderTodos(allTodos);
 

@@ -55,6 +55,10 @@ function deleteTodo(id) {
   }
 }
 
+function clearInnerHtml(parent) {
+  parent.innerHTML = "";
+}
+
 function todoClick(event) {
   const item = event.target;
   const todo = item.closest(".todo");

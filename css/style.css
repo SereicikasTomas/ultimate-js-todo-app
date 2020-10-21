@@ -239,10 +239,10 @@ header h1 {
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg-color: #0e0e0e;
+    --bg-color: #1a1a1a;
     --text-color: #f5f5f5;
     --shadow-color: #000000;
-    --bg: linear-gradient(90deg, rgb(33, 33, 33) 0%, transparent 59%),
+    --bg: linear-gradient(90deg, rgb(12, 12, 12) 0%, transparent 59%),
       repeating-linear-gradient(
         45deg,
         rgba(168, 168, 168, 0.1) 0px,
@@ -257,16 +257,16 @@ header h1 {
         transparent 1px,
         transparent 13px
       ),
-      linear-gradient(90deg, rgb(33, 33, 33), rgb(33, 33, 33));
+      linear-gradient(90deg, rgb(12, 12, 12), rgb(12, 12, 12));
   }
 }
 
 @media (prefers-color-scheme: light) {
   :root {
     --bg-color: #f5f5f5;
-    --text-color: #0e0e0e;
+    --text-color: #1a1a1a;
     --shadow-color: #acacac;
-    --bg: linear-gradient(90deg, rgb(255, 255, 255) 0%, transparent 57%),
+    --bg: linear-gradient(90deg, rgb(230, 230, 230) 0%, transparent 57%),
       repeating-linear-gradient(
         135deg,
         rgba(152, 152, 152, 0.1) 0px,
@@ -281,6 +281,6 @@ header h1 {
         transparent 1px,
         transparent 13px
       ),
-      linear-gradient(90deg, rgb(255, 255, 255), rgb(255, 255, 255));
+      linear-gradient(90deg, rgb(230, 230, 230), rgb(230, 230, 230) );
   }
 }

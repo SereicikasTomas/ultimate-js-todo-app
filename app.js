@@ -10,8 +10,6 @@ const createId = () => {
 const allTodos = getSavedTodos();
 allTodos.forEach((todo, index) => renderTodo(todo, index));
 
-renderTodos(allTodos);
-
 form.addEventListener("submit", addTodo);
 todoList.addEventListener("click", todoClick);
 filter.addEventListener("change", filterTodo);
@@ -99,11 +97,7 @@ function filterTodo(event) {
 function getSavedTodos() {
   let data = localStorage.getItem("todos");
   //Check if the value for parsing is correct
-  try {
-    return data ? JSON.parse(data) : [];
-  } catch (e) {
-    return [];
-  }
+  return data ? JSON.parse(data) : [];
 }
 
 // Save todos to localStorage
@@ -111,10 +105,12 @@ function saveTodos(todos) {
   localStorage.setItem("todos", JSON.stringify(todos));
 }
 
-function todoBlueprint(text, id) {
+function todoBlueprint(todo, index = 0) {
+  const { title, id, completed } = todo;
+  const completedClass = completed ? "completed" : "";
   return `
-  <li class="todo active" data-id=${id}>
-    <p class="todo__text">${text}</p>
+  <li class="todo ${completedClass}" data-id=${id} style="--i:${index};">
+    <p class="todo__text">${title}</p>
     <button class="complete">
       <svg>
         <use xlink:href="img/sprite.svg#check-square"></use>

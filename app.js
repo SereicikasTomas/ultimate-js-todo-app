@@ -1,3 +1,5 @@
+"use strict";
+
 const form = document.querySelector(".form");
 const input = document.querySelector(".form__input");
 const todoList = document.querySelector(".todo-list");
@@ -36,7 +38,7 @@ function addTodo(event) {
 }
 
 function renderTodo(todo, index) {
-  todoList.insertAdjacentHTML("beforeend", todoBlueprint(todo, index));
+  todoList.insertAdjacentHTML("beforeend", todoMarkup(todo, index));
 }
 
 const toggleTodo = (id) => {
@@ -111,7 +113,7 @@ function saveTodos(todos) {
   localStorage.setItem("todos", JSON.stringify(todos));
 }
 
-function todoBlueprint(todo, index = 0) {
+function todoMarkup(todo, index = 0) {
   const { title, id, completed } = todo;
   const completedClass = completed ? "completed" : "";
   return `

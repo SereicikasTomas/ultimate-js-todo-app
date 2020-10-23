@@ -186,8 +186,8 @@ header h1 {
 }
 
 .todo-list .todo {
-  width: 30rem;
-  padding: 0.5rem;
+  width: 30%;
+  padding: 1rem;
   margin-right: 1rem;
   border-radius: 5px;
   display: -webkit-box;
@@ -209,7 +209,7 @@ header h1 {
 }
 
 .todo-list .todo__text {
-  font-size: 1.5rem;
+  font-size: 2rem;
   -webkit-hyphens: auto;
       -ms-hyphens: auto;
           hyphens: auto;

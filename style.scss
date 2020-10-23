@@ -143,8 +143,8 @@ header {
   overflow: scroll;
 
   .todo {
-    width: 30rem;
-    padding: 0.5rem;
+    width: 30%;
+    padding: 1rem;
     margin-right: 1rem;
     border-radius: 5px;
     display: flex;
@@ -156,7 +156,7 @@ header {
     transition: opacity 0.3s ease, transform 0.3s ease;
 
     &__text {
-      font-size: 1.5rem;
+      font-size: 2rem;
       hyphens: auto;
       max-width: 20rem;
       margin-right: auto;

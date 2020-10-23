@@ -4,17 +4,20 @@ const form = document.querySelector(".form");
 const input = document.querySelector(".form__input");
 const todoList = document.querySelector(".todo-list");
 const filter = document.querySelector(".filter");
+const sort = document.querySelector(".sort");
 const createId = () => {
   const date = new Date();
   return date.getTime();
 };
 
 const allTodos = getSavedTodos();
+let todosForFilter = [...allTodos];
 allTodos.forEach((todo, index) => renderTodo(todo, index));
 
 form.addEventListener("submit", addTodo);
 todoList.addEventListener("click", todoClick);
 filter.addEventListener("change", filterTodo);
+sort.addEventListener("change", sortTodo);
 
 function addTodo(event) {
   event.preventDefault();
@@ -64,39 +67,74 @@ function clearInnerHtml(parent) {
 function todoClick(event) {
   const item = event.target;
   const todo = item.closest(".todo");
-  const { id } = todo.dataset;
   const completeButton = item.closest(".complete");
   const deleteButton = item.closest(".delete");
 
   if (completeButton) {
     completeButton.parentElement.classList.toggle("completed");
-    toggleTodo(id);
+    toggleTodo(todo.dataset.id);
     saveTodos(allTodos);
   }
 
   if (deleteButton) {
     todo.classList.add("deleted");
-    deleteTodo(id);
+    deleteTodo(todo.dataset.id);
     saveTodos(allTodos);
     todo.addEventListener("transitionend", () => todo.remove());
   }
 }
 
 function filterTodo(event) {
-  const completeTodos = allTodos.filter((curr) => curr.completed);
-  const uncompleteTodos = allTodos.filter((curr) => !curr.completed);
+  sort.value = "";
   switch (event.target.value) {
     case "all":
       clearInnerHtml(todoList);
       allTodos.forEach((todo, index) => renderTodo(todo, index));
+      todosForFilter = [...allTodos];
       break;
     case "completed":
       clearInnerHtml(todoList);
+      const completeTodos = allTodos.filter((curr) => curr.completed);
       completeTodos.forEach((todo, index) => renderTodo(todo, index));
+      todosForFilter = completeTodos;
       break;
     case "uncompleted":
       clearInnerHtml(todoList);
+      const uncompleteTodos = allTodos.filter((curr) => !curr.completed);
       uncompleteTodos.forEach((todo, index) => renderTodo(todo, index));
+      todosForFilter = uncompleteTodos;
+      break;
+  }
+}
+
+function sortTodo(event) {
+  switch (event.target.value) {
+    case "ascending":
+      const ascendingTodos = todosForFilter.sort(function (a, b) {
+        const nameA = a.title.toLowerCase();
+        const nameB = b.title.toLowerCase();
+        if (nameA > nameB) return 1;
+        if (nameA < nameB) return -1;
+        return 0;
+      });
+      clearInnerHtml(todoList);
+      ascendingTodos.forEach((todo, index) => renderTodo(todo, index));
+      break;
+    case "descending":
+      const descendingTodos = todosForFilter.sort(function (a, b) {
+        const nameA = a.title.toLowerCase();
+        const nameB = b.title.toLowerCase();
+        if (nameA < nameB) return 1;
+        if (nameA > nameB) return -1;
+        return 0;
+      });
+      clearInnerHtml(todoList);
+      descendingTodos.forEach((todo, index) => renderTodo(todo, index));
+      break;
+    case "random":
+      const randomTodos = todosForFilter.sort(() => Math.random() - 0.5);
+      clearInnerHtml(todoList);
+      randomTodos.forEach((todo, index) => renderTodo(todo, index));
       break;
   }
 }

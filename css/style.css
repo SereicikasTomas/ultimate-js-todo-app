@@ -12,8 +12,11 @@
           box-sizing: border-box;
 }
 
-body {
+html {
   font-size: 62.5%;
+}
+
+body {
   color: var(--text-color);
   font-family: "Poppins", sans-serif;
   background: var(--bg) no-repeat center/cover;
@@ -56,6 +59,7 @@ header h1 {
   display: -ms-flexbox;
   display: flex;
   font-size: 2rem;
+  min-height: 2.5rem;
   overflow: hidden;
   border-radius: 5px;
   width: 20rem;
@@ -104,8 +108,8 @@ header h1 {
 
 .form__button svg {
   margin: auto;
-  width: 25px;
-  height: 25px;
+  width: 2.5rem;
+  height: 2.5rem;
   fill: var(--text-color);
   -webkit-transition: all 300ms ease;
   transition: all 300ms ease;
@@ -119,14 +123,25 @@ header h1 {
   fill: var(--bg-color);
 }
 
-.filter-wrapper {
-  margin-top: 1rem;
+.filter-container {
+  margin-top: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.filter-container .filter-wrapper {
   position: relative;
   border-radius: 5px;
   overflow: hidden;
+  min-height: 2rem;
 }
 
-.filter-wrapper select {
+.filter-container .filter-wrapper:first-child {
+  margin-right: 2rem;
+}
+
+.filter-container .filter-wrapper select {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
@@ -135,27 +150,45 @@ header h1 {
   background-color: var(--bg-color);
   color: var(--text-color);
   cursor: pointer;
-  padding: 0.5rem 2.5rem 0.5rem 1rem;
-  font-size: 1rem;
+  padding: 1rem 2.5rem 1rem 1rem;
+  font-size: 1.5rem;
   font-family: inherit;
 }
 
-.filter-wrapper::after {
+.filter-container .filter-wrapper::after {
   content: "\25BC";
   position: absolute;
   right: 1rem;
-  top: 30%;
+  top: 55%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
   pointer-events: none;
 }
 
 .todo-list {
   list-style: none;
-  width: 25rem;
-  margin-top: 1rem;
+  height: 60%;
+  width: 100%;
+  padding: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  overflow: scroll;
 }
 
 .todo-list .todo {
+  width: 30rem;
   padding: 0.5rem;
+  margin-right: 1rem;
   border-radius: 5px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -165,14 +198,14 @@ header h1 {
           align-items: center;
   margin-top: 1rem;
   background: var(--bg-color);
-  -webkit-animation: slideIn 0.5s ease backwards;
-          animation: slideIn 0.5s ease backwards;
-  -webkit-animation-delay: calc(0.1s * var(--i));
-          animation-delay: calc(0.1s * var(--i));
-  -webkit-transition: opacity 0.5s ease, -webkit-transform 0.5s ease;
-  transition: opacity 0.5s ease, -webkit-transform 0.5s ease;
-  transition: opacity 0.5s ease, transform 0.5s ease;
-  transition: opacity 0.5s ease, transform 0.5s ease, -webkit-transform 0.5s ease;
+  -webkit-animation: slideIn 0.3s ease backwards;
+          animation: slideIn 0.3s ease backwards;
+  -webkit-animation-delay: calc(0.06s * var(--i));
+          animation-delay: calc(0.06s * var(--i));
+  -webkit-transition: opacity 0.3s ease, -webkit-transform 0.3s ease;
+  transition: opacity 0.3s ease, -webkit-transform 0.3s ease;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition: opacity 0.3s ease, transform 0.3s ease, -webkit-transform 0.3s ease;
 }
 
 .todo-list .todo__text {
@@ -186,8 +219,8 @@ header h1 {
 }
 
 .todo-list .todo svg {
-  width: 25px;
-  height: 25px;
+  width: 2.5rem;
+  height: 2.5rem;
 }
 
 .todo-list .todo button {

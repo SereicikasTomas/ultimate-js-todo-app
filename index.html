@@ -9,11 +9,11 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/style.min.css" />
-    <title>Todo App</title>
+    <title>List App</title>
   </head>
   <body>
     <header>
-      <h1>Todo List</h1>
+      <h1>My List</h1>
     </header>
     <form class="form">
         <input class="form__input" type="text" placeholder="Create a todo..." id="form"/>
@@ -24,14 +24,25 @@
         </svg>
       </button>
     </form>
-    <div class="filter-wrapper">
-      <select name="todos" class="filter" id="filter">
-        <option value="" disabled selected>Select filter...</option>
-        <option value="all">All</option>
-        <option value="completed">Completed</option>
-        <option value="uncompleted">Uncompleted</option>
-      </select>
-      <label for="filter">Select filter</label>
+    <div class="filter-container">
+      <div class="filter-wrapper">
+        <select name="filter" class="filter" id="filter">
+          <option value="" disabled selected>Select filter...</option>
+          <option value="all">All</option>
+          <option value="completed">Completed</option>
+          <option value="uncompleted">Uncompleted</option>
+        </select>
+        <label for="filter">Select filter</label>
+      </div>
+      <div class="filter-wrapper">
+        <select name="sort" class="sort" id="sort">
+          <option value="" disabled selected>Sort...</option>
+          <option value="ascending">Ascending (A to Z)</option>
+          <option value="descending">Descending (Z to A)</option>
+          <option value="random">Random</option>
+        </select>
+        <label for="sort">Sort</label>
+      </div>
     </div>
     <ul class="todo-list"></ul>
     <script src="./app.js"></script>

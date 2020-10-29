@@ -3,6 +3,13 @@
   --red: #e63946;
 }
 
+/*
+0-600px: Phone
+600px-900px: Tablet portrait
+900px-1200px: Tablet landscape
+1200px-1800px normal styles
+1800px + : Big desktop
+*/
 *,
 *::after,
 *::before {
@@ -14,6 +21,24 @@
 
 html {
   font-size: 62.5%;
+}
+
+@media only screen and (max-width: 75em) {
+  html {
+    font-size: 56.25%;
+  }
+}
+
+@media only screen and (max-width: 56.25em) {
+  html {
+    font-size: 50%;
+  }
+}
+
+@media only screen and (min-width: 112.5em) {
+  html {
+    font-size: 75%;
+  }
 }
 
 body {
@@ -58,7 +83,7 @@ header h1 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  min-height: 2.5rem;
+  min-height: 4rem;
   overflow: hidden;
   border-radius: 5px;
 }
@@ -166,10 +191,10 @@ header h1 {
 
 .todo-list {
   list-style: none;
-  height: 60%;
+  height: 100%;
   width: 100%;
   margin-top: 2rem;
-  padding: 1rem;
+  padding: 2rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -188,7 +213,8 @@ header h1 {
 .todo-list .todo {
   width: 30%;
   padding: 1rem 2rem;
-  margin-right: 1rem;
+  margin-right: 2rem;
+  margin-bottom: 2rem;
   border-radius: 5px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -196,7 +222,6 @@ header h1 {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-top: 1rem;
   background: var(--bg-color);
   -webkit-animation: slideIn 0.3s ease backwards;
           animation: slideIn 0.3s ease backwards;
@@ -206,6 +231,18 @@ header h1 {
   transition: opacity 0.3s ease, -webkit-transform 0.3s ease;
   transition: opacity 0.3s ease, transform 0.3s ease;
   transition: opacity 0.3s ease, transform 0.3s ease, -webkit-transform 0.3s ease;
+}
+
+@media only screen and (max-width: 75em) {
+  .todo-list .todo {
+    width: calc(50% - 2rem);
+  }
+}
+
+@media only screen and (max-width: 56.25em) {
+  .todo-list .todo {
+    width: calc(100% - 2rem);
+  }
 }
 
 .todo-list .todo__text {
@@ -240,6 +277,10 @@ header h1 {
 
 .todo-list .todo .delete svg {
   fill: var(--red);
+}
+
+.todo-list .completed {
+  opacity: .5;
 }
 
 .todo-list .completed p {

@@ -11,7 +11,7 @@ const createId = () => {
 };
 
 const allTodos = getSavedTodos();
-let todosForFilter = [...allTodos];
+let todosForFilter = allTodos;
 allTodos.forEach((todo, index) => renderTodo(todo, index));
 
 form.addEventListener("submit", addTodo);

@@ -1,6 +1,6 @@
 # This is an ultimate todo app 📓
 This is a web app that lets you create todo list.
-[Check it out here](https://sereicikastomas.github.io/ultimate-todo-app/)
+[Check out live version here](https://sereicikastomas.github.io/ultimate-todo-app/)
 
 ## Screenshots
 Themes switch automaticaly (according to your system preferences).
